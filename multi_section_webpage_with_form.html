@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lists, Tables & Media — HTML5 Form Demo</title>
+  <meta name="description" content="A simple multi-section page demonstrating lists, tables, media and a complete HTML5 form using built-in validation and accessible markup.">
+  <style>
+    :root{--accent:#0b6efd;--muted:#555;--bg:#f7f9fc}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; line-height:1.45; color:#222; margin:0; background:var(--bg)}
+    .wrap{max-width:980px;margin:28px auto;padding:20px;background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(9,30,66,.08)}
+    header{display:flex;align-items:center;gap:16px}
+    header h1{margin:0;font-size:1.5rem}
+    nav{margin-left:auto}
+    nav a{color:var(--accent);text-decoration:none;margin-left:12px}
+    section{padding:18px 0;border-top:1px solid #eee}
+    h2{margin:0 0 12px 0;color:#0b3a66}
+    p.lead{margin:0 0 12px;color:var(--muted)}
+
+    /* Lists & tables */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    ul, ol, dl{padding-left:1.15rem}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:8px 10px;border:1px solid #e6eef8;text-align:left}
+    th{background:#f1f7ff}
+
+    /* Media */
+    .media{display:flex;flex-direction:column;gap:12px}
+    img.responsive{max-width:100%;height:auto;border-radius:8px}
+    .video-wrap{aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}
+
+    /* Form */
+    form{margin-top:6px}
+    fieldset{border:1px solid #e4eefb;padding:12px;border-radius:8px;margin-bottom:12px}
+    legend{font-weight:600;color:#0b3a66}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-size:.92rem;margin-bottom:6px}
+    input,select,textarea{width:100%;padding:8px 10px;border:1px solid #ccdff6;border-radius:6px;font-size:0.95rem}
+    textarea{min-height:100px;resize:vertical}
+    .small{font-size:.85rem;color:var(--muted)}
+    .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:8px}
+    button{background:var(--accent);color:#fff;border:0;padding:10px 16px;border-radius:8px;cursor:pointer}
+    button[type="reset"]{background:#f3f4f6;color:#222}
+
+    footer{margin-top:18px;font-size:.9rem;color:var(--muted);text-align:center}
+
+    @media (max-width:720px){.two-col,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="var(--accent)" d="M3 5h18v2H3zM3 11h18v2H3zM3 17h18v2H3z"></path></svg>
+      <div>
+        <h1>Web Elements & HTML5 Form Demo</h1>
+        <p class="small">A concise page demonstrating lists, tables, media, and a fully-accessible HTML5 form.</p>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#lists">Lists</a>
+        <a href="#table">Table</a>
+        <a href="#media">Media</a>
+        <a href="#form">Form</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="lists">
+        <h2>1. Lists</h2>
+        <p class="lead">Examples of semantic lists: unordered, ordered, and definition lists.</p>
+        <div class="two-col">
+          <div>
+            <h3>Shopping List (unordered)</h3>
+            <ul>
+              <li>Fruits
+                <ul>
+                  <li>Bananas</li>
+                  <li>Apples</li>
+                </ul>
+              </li>
+              <li>Bread</li>
+              <li>Dairy</li>
+            </ul>
+
+            <h3>Steps (ordered)</h3>
+            <ol>
+              <li>Create project folder</li>
+              <li>Write code</li>
+              <li>Test & submit</li>
+            </ol>
+          </div>
+
+          <div>
+            <h3>Reference (definition list)</h3>
+            <dl>
+              <dt>HTML5</dt>
+              <dd>The standard language for building web pages.</dd>
+              <dt>Accessibility</dt>
+              <dd>Designing for all users, including those using assistive tech.</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="table">
+        <h2>2. Table</h2>
+        <p class="lead">A simple product table showing stock and price. Tables are for tabular data — not for layout.</p>
+        <table aria-describedby="table-desc">
+          <caption id="table-desc">Sample product list with buy price and quantity in stock.</caption>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Buy Price (USD)</th>
+              <th>Quantity In Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Notebook</td>
+              <td>2.50</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td>Ballpoint Pen</td>
+              <td>0.60</td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>Mug</td>
+              <td>4.00</td>
+              <td>85</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="media">
+        <h2>3. Media</h2>
+        <p class="lead">Images and embedded video demonstrate how to include media with accessible alternatives.</p>
+        <div class="media">
+          <figure>
+            <img src="https://via.placeholder.com/920x300.png?text=Product+Showcase" alt="Placeholder banner showing product showcase" class="responsive">
+            <figcaption class="small">Figure: Product showcase banner (decorative + descriptive alt).</figcaption>
+          </figure>
+
+          <div class="video-wrap" role="region" aria-label="Product demo video">
+            <!-- Using an iframe for a public video (YouTube) or use <video> element for local files -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ysz5S6PUM-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;display:block"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="form">
+        <h2>4. Complete HTML5 Form</h2>
+        <p class="lead">This form demonstrates semantic structure, accessibility, and native HTML5 validation (no JavaScript).</p>
+
+        <form action="#" method="post" novalidate="" aria-describedby="form-instructions" autocomplete="on">
+          <p id="form-instructions" class="small">Fields marked with <strong>*</strong> are required. This form uses built-in HTML5 validation attributes.</p>
+
+          <fieldset>
+            <legend>Personal Information</legend>
+            <div class="grid">
+              <div>
+                <label for="firstName">First name *</label>
+                <input id="firstName" name="firstName" type="text" required minlength="2" placeholder="e.g. Jane" autofocus>
+                <p class="small">Minimum 2 characters.</p>
+              </div>
+
+              <div>
+                <label for="lastName">Last name *</label>
+                <input id="lastName" name="lastName" type="text" required minlength="2" placeholder="e.g. Doe">
+              </div>
+
+              <div>
+                <label for="email">Email address *</label>
+                <input id="email" name="email" type="email" required placeholder="name@example.com" aria-describedby="emailHelp">
+                <p id="emailHelp" class="small">We'll never share your email.</p>
+              </div>
+
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" pattern="\+?[0-9\-\s]{7,20}" placeholder="+254 712 345678">
+                <p class="small">Optional — digits, spaces, dashes allowed. Include country code if available.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Address</legend>
+            <label for="address1">Address line 1 *</label>
+            <input id="address1" name="address1" type="text" required placeholder="Street address or P.O. box">
+
+            <label for="address2">Address line 2</label>
+            <input id="address2" name="address2" type="text" placeholder="Apartment, suite, unit (optional)">
+
+            <div class="grid">
+              <div>
+                <label for="city">City *</label>
+                <input id="city" name="city" type="text" required>
+              </div>
+              <div>
+                <label for="postal">Postal / ZIP</label>
+                <input id="postal" name="postal" type="text" pattern="[A-Za-z0-9\-\s]{3,10}" placeholder="e.g. 00100">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Preferences</legend>
+
+            <label for="contactPref">Preferred contact method *</label>
+            <select id="contactPref" name="contactPref" required>
+              <option value="">Choose...</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+              <option value="none">No contact</option>
+            </select>
+
+            <p style="margin-top:10px">Newsletter</p>
+            <label><input type="checkbox" name="newsletter" value="weekly"> Subscribe to weekly newsletter</label><br>
+            <label><input type="checkbox" name="newsletter" value="monthly"> Subscribe to monthly digest</label>
+
+            <p style="margin-top:8px">Gender</p>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Account & Order</legend>
+            <div class="grid">
+              <div>
+                <label for="username">Username *</label>
+                <input id="username" name="username" type="text" required minlength="4" pattern="[A-Za-z0-9_\-]{4,20}" placeholder="4-20 chars, letters & numbers">
+                <p class="small">Allowed: letters, numbers, underscore, hyphen.</p>
+              </div>
+
+              <div>
+                <label for="password">Password *</label>
+                <input id="password" name="password" type="password" required minlength="8" pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" aria-describedby="pwdHelp">
+                <p id="pwdHelp" class="small">Min 8 chars, include upper & lower case and a number.</p>
+              </div>
+            </div>
+
+            <label for="quantity">Quantity *</label>
+            <input id="quantity" name="quantity" type="number" required min="1" max="100" value="1">
+
+            <label for="delivery">Preferred delivery date</label>
+            <input id="delivery" name="delivery" type="date">
+
+            <label for="deliveryTime">Preferred delivery time</label>
+            <input id="deliveryTime" name="deliveryTime" type="time">
+
+            <label for="color">Choose a color (optional)</label>
+            <input id="color" name="color" type="color" value="#0b6efd">
+
+            <label for="file">Attachment (optional)</label>
+            <input id="file" name="file" type="file" accept=".pdf,.png,.jpg,.jpeg" aria-describedby="fileHelp">
+            <p id="fileHelp" class="small">Allowed: PDF, PNG, JPG. Max size depends on server.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Additional Comments</legend>
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments" minlength="10" placeholder="Tell us anything important... (min 10 chars)"></textarea>
+          </fieldset>
+
+          <div class="actions">
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Designed for accessibility & demonstration — no JavaScript validation used. Preview this file in your browser or with VS Code Live Server.</p>
+    </footer>
+  </div>
+</body>
+</html>
